@@ -1,6 +1,6 @@
 from agents import *
 from envs import *
-from utils import *
+from util import *
 from config import *
 from torch.multiprocessing import Pipe
 
