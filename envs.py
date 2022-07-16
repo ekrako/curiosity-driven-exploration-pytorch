@@ -48,13 +48,13 @@ def unwrap(env):
 class NoopResetEnv(gym.Wrapper):
     def __init__(self, env, noop_max=30):
         """Sample initial states by taking random number of no-ops on reset.
-        No-op is assumed to be action 0.
+        No-op is assumed to be action 1.
         """
         gym.Wrapper.__init__(self, env)
         self.noop_max = noop_max
         self.override_num_noops = None
-        self.noop_action = 0
-        assert env.unwrapped.get_action_meanings()[0] == 'NOOP'
+        self.noop_action = 1
+        assert env.action_type.actions[env.unwrapped.get_available_actions()[0]] == 'IDLE'
 
     def reset(self, **kwargs):
         """ Do no-op action for a number of steps in [1, noop_max]."""
